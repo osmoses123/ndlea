@@ -124,6 +124,13 @@ class AdminController extends Controller
     
             return view('admin.allcertificates', compact('certificates'));
         }
+
+        //get a single certificate;
+        public function getCert($id){
+            $cert = Certificates::find($id);
+
+            return view('admin.user_cert', compact('cert'));
+        }
     
     
    

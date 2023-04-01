@@ -131,12 +131,12 @@ All  Certificate
                                   @endif
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.dashboard', $certificate->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('admin.user_cert', $certificate->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                     <a  href="{{route('admin.dashboard', $certificate->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                   
+                                    <a  href="{{route('admin.user_cert', $certificate->id)}}" class="btn btn-danger"><i class="fa fa-eye-slash"></i></a>
                                    {{-- For GET Method --}}
                                     @if ($certificate->status=='active')
-                                    <a  href="{{route('admin.dashboard', $certificate->id)}}" class="btn btn-danger"><i class="fa fa-eye-slash"></i></a>
+                                    <a  href="{{route('admin.user_cert', $certificate->id)}}" class="btn btn-danger"><i class="fa fa-eye-slash"></i></a>
                                     
                                     @else
                                      {{-- For POST Method --}}

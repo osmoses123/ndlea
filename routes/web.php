@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HodController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +16,18 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/login', [AdminController::class, 'Index'])->name('login_from');
 
-
 Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
-
 
 Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
 
 Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
 
-
-
 Route::post('/login/owner', [AdminController::class, 'Login'])->name('admin.login');
-
 
 
 Route::post('/create/admin', [AdminController::class, 'CreateAdmin'])->name('admin.create_admin');
 
+Route::get('/user_cert/{certificate}', [AdminController::class, 'getCert'])->name('cert');
 
 //  // for Departments
 //  Route::get('/adddept', [AdminController::class, 'AdminAddDept'])->name('admin.admin_adddept')->middleware('admin');
@@ -84,6 +81,9 @@ Route::post('/create/admin', [AdminController::class, 'CreateAdmin'])->name('adm
  Route::get('/addcertificate', [AdminController::class, 'AdminAddCertificate'])->name('admin.addcertificate')->middleware('admin');
 Route::get('/allcertificates', [AdminController::class, 'AllCertificates'])->name('admin.allcertificates')->middleware('admin');
   Route::post('/storecertificate', [AdminController::class, 'StoreCertificate'])->name('admin.storecertificate')->middleware('admin');
+  
+Route::get('/user_cert/{id}', [AdminController::class, 'getCert'])->name('admin.user_cert')->middleware('admin');
+
 //  Route::post('/admin/updatecategory', 'UpdateCategory')->name('admin.updatecategory');
 //  Route::get('/admin/editcategory/{id}', 'EditCategory')->name('admin.editcategory');
 //  Route::get('/admin/deletecategory/{id}', 'DeleteCategory')->name('admin.deletecategory');
